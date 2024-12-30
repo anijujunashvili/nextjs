@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 "use client";
 
 import { PencilIcon, PlusIcon, TrashIcon } from "@heroicons/react/24/outline";
@@ -31,8 +32,8 @@ export function UpdateInvoice({ id }: { id: string }) {
 export function DeleteInvoice({ id }: { id: string }) {
   const initialState: State = { message: null, errors: {} };
   const deleteInvoiceWithId = deleteInvoice.bind(null, id);
-  //@ts-ignore
-  const [state, formAction] = useActionState(deleteInvoiceWithId, initialState);
+  //@ts-expect-error
+  const [, formAction] = useActionState(deleteInvoiceWithId, initialState);
 
   return (
     <>
